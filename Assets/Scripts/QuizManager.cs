@@ -33,7 +33,7 @@ public class QuizManager : MonoBehaviour
 
             if (QnA[currentQuestion].Answers[i].isTextAnswer)
             {
-                options[i].transform.Find("answerText").GetComponent<Text>().text = QnA[currentQuestion].Answers[i].TextAnswer;
+                options[i].transform.Find("answerText").GetComponent<TextMeshProUGUI>().text = QnA[currentQuestion].Answers[i].TextAnswer;
             }
             else
             {
