@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class QuizManager : MonoBehaviour
@@ -10,7 +11,7 @@ public class QuizManager : MonoBehaviour
     public GameObject[] options;
     public int currentQuestion;
 
-    public Text QuestionText;
+    public TextMeshProUGUI QuestionText;
     public Image QuestionImg; // Image component for displaying image questions
 
     private void Start()
