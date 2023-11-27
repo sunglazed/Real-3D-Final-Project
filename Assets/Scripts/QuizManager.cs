@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class QuizManager : MonoBehaviour
 {
     public List<AnswersQuestions> QnA;
-    public GameObject[] options;
+    public GameObject[] options; //array of buttons
     public int currentQuestion;
 
     public TextMeshProUGUI QuestionText;
@@ -27,16 +27,22 @@ public class QuizManager : MonoBehaviour
 
     void SetAnswers()
     {
+        
+
          for (int i = 0; i < options.Length; i++)
          {   
-             options[i].GetComponent<AnswerScript>().isCorrect = false;
+            options[i].GetComponent<AnswerScript>().isCorrect = false;
 
-            if (QnA[currentQuestion].Answers[i].isTextAnswer)
+            if (QnA[currentQuestion].Answers[i].isTextAnswer) //checking if the answer is text
             {
+                options[i].transform.Find("answerText").gameObject.SetActive(true);
+                options[i].transform.Find("answerImage").gameObject.SetActive(false);
                 options[i].transform.Find("answerText").GetComponent<TextMeshProUGUI>().text = QnA[currentQuestion].Answers[i].TextAnswer;
             }
             else
             {
+                options[i].transform.Find("answerText").gameObject.SetActive(false);
+                options[i].transform.Find("answerImage").gameObject.SetActive(true);
                 options[i].transform.Find("answerImage").GetComponent<Image>().sprite = QnA[currentQuestion].Answers[i].ImageAnswer;
             }
 
