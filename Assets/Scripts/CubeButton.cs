@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class CubeButton : MonoBehaviour
 {
+    public Animator door;
+    public string sceneName;
     private void OnMouseUpAsButton(){
         Debug.Log("Works");
-        SceneManager.LoadScene("Quiz Game");
+        //door.Play("QuizDoor", 0, 0.0f);
+        SceneManager.LoadScene(sceneName);
     }
 }

@@ -7,8 +7,9 @@ public class canvasSwitch : MonoBehaviour
 {
     public Canvas canvasToDeactivate;
 
-    public void OnButtonClick()
+    public void Switch()
     {
+        Debug.Log("Pressed");
        canvasToDeactivate.gameObject.SetActive(false);
        
     }

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Quiz Game.unity
     guid: 44a633ac9575140af86e9198dd53b079
+  - enabled: 1
+    path: Assets/Scenes/Sign Language Scene.unity
+    guid: 8428b00c84b3c4c1c9ae52e581b57829
   m_configObjects: {}
