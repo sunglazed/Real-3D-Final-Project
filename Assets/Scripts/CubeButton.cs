@@ -11,5 +11,6 @@ public class CubeButton : MonoBehaviour
         Debug.Log("Works");
         //door.Play("QuizDoor", 0, 0.0f);
         SceneManager.LoadScene(sceneName);
+        Cursor.lockState = CursorLockMode.None;
     }
 }

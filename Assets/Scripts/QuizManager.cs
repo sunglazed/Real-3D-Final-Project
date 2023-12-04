@@ -32,18 +32,13 @@ public class QuizManager : MonoBehaviour
     public void retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
-
     }
-
+    
     public void GameOver()
     {
         QuizPanel.SetActive(false);
         GoPanel.SetActive(true);
         ScoreText.text = score + "/" + totalQuestion;
-
-
-
     }
     
     public void correct()
@@ -59,12 +54,14 @@ public class QuizManager : MonoBehaviour
         generateQuestion();
     }
         
-    
+    public void GoBack()
+    {
+        SceneManager.LoadScene("all_objects");
+    }
+
 
     void SetAnswers()
     {
-        
-
          for (int i = 0; i < options.Length; i++)
          {   
             options[i].GetComponent<AnswerScript>().isCorrect = false;

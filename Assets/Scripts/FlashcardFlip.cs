@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Question{
     public Sprite questionImage;
@@ -16,8 +17,9 @@ public class FlashcardFlip : MonoBehaviour
 {
     // Start is called before the first frame update
     public RectTransform r;
-    public Text cardText;
+    public TMP_Text cardText;
     public Image sign;
+    public TMP_Text cardTracker;
     public Question[] ques = new Question[26];
     private float flipTime = 0.5f;
     private int faceSide = 0;
@@ -88,6 +90,7 @@ public class FlashcardFlip : MonoBehaviour
         cardText.text = ques[cardNum].correctAnswer;
         sign.enabled = true;
         cardText.enabled = false;
+        cardTracker.text = (cardNum + 1) + "/26";
     }
 
     // Update is called once per frame
@@ -123,17 +126,54 @@ public class FlashcardFlip : MonoBehaviour
     }
     public void NextCard(){
         faceSide = 0;
+        sign.enabled = true;
+        cardText.enabled = false;
         cardNum++;
         if(cardNum >= ques.Length){
             cardNum = 0;
         }
+        Debug.Log(cardNum);
         sign.sprite = ques[cardNum].questionImage;
         cardText.text = ques[cardNum].correctAnswer;
+        cardTracker.text = (cardNum + 1) + "/26";
+    }
+    public void BackCard(){
+        faceSide = 0;
+        sign.enabled = true;
+        cardText.enabled = false;
+        cardNum--;
+        if(cardNum <= 0){
+            cardNum = 0;
+        }
+        Debug.Log(cardNum);
+        sign.sprite = ques[cardNum].questionImage;
+        cardText.text = ques[cardNum].correctAnswer;
+        cardTracker.text = (cardNum+1) + "/26";
     }
     public void FlipCard(){
         timeCount = 0;
         isFlipping = true;
         isShrinking = -1;
+    }
+    static void Reshuffle(Question[] questions)
+    {
+        for (int t = 0; t < questions.Length; t++ )
+        {
+            Question tmp = questions[t];
+            int r = Random.Range(t, questions.Length);
+            questions[t] = questions[r];
+            questions[r] = tmp;
+        }
+    }
+    public void ShuffleCard(){
+        faceSide = 0;
+        sign.enabled = true;
+        cardText.enabled = false;
+        cardNum = 0;
+        Reshuffle(ques);
+        sign.sprite = ques[cardNum].questionImage;
+        cardText.text = ques[cardNum].correctAnswer;
+        cardTracker.text = (cardNum + 1) + "/26";
     }
     
 }

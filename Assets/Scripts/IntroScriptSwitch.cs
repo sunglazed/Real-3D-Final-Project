@@ -5,19 +5,24 @@ using UnityEngine;
 public class IntroScriptSwitch : MonoBehaviour
 
 {
-    public GameObject CanvasIntro; 
+    public GameObject IntroCamera;
+    public GameObject GameCamera;
+
+    public GameObject IntroCanvas;
+    public GameObject GameCanvas; 
     // Start is called before the first frame update
     void Start()
     {
-        CanvasIntro.SetActive(true);
-
-        
+        IntroCamera.SetActive(true);
+        IntroCanvas.SetActive(true);
+        GameCamera.SetActive(false);
+        GameCanvas.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        CanvasIntro.SetActive(false);
-        
+    public void SwitchCam(){
+        IntroCamera.SetActive(false);
+        IntroCanvas.SetActive(false);
+        GameCamera.SetActive(true);
+        GameCanvas.SetActive(true);
     }
 }
