@@ -9,12 +9,6 @@ public class flashcardOptions : MonoBehaviour
     public GameObject wordPanel;
     public GameObject numberPanel;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void openWord()
     {
         introPanel.SetActive(false);
@@ -38,5 +32,12 @@ public class flashcardOptions : MonoBehaviour
         numberPanel.SetActive(false);
         wordPanel.SetActive(false);
 
+    }
+
+    public void Return(){
+        introPanel.SetActive(true);
+        alphabetPanel.SetActive(false);
+        numberPanel.SetActive(false);
+        wordPanel.SetActive(false);
     }
 }

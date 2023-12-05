@@ -10,6 +10,7 @@ public class WordFlashcard : MonoBehaviour
     public TMP_Text cardText;
     public Image sign;
     public TMP_Text cardTracker;
+    
     public Question[] ques = new Question[29];
     private float flipTime = 0.5f;
     private int faceSide = 0;

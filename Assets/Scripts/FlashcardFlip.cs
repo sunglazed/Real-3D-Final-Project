@@ -175,5 +175,4 @@ public class FlashcardFlip : MonoBehaviour
         cardText.text = ques[cardNum].correctAnswer;
         cardTracker.text = (cardNum + 1) + "/26";
     }
-    
 }
