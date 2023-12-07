@@ -11,4 +11,5 @@ public class MoveCam : MonoBehaviour
     {
         transform.position = cameraPosition.position;
     }
+    
 }

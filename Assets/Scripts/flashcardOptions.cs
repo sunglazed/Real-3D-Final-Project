@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class flashcardOptions : MonoBehaviour
 {
@@ -39,5 +40,12 @@ public class flashcardOptions : MonoBehaviour
         alphabetPanel.SetActive(false);
         numberPanel.SetActive(false);
         wordPanel.SetActive(false);
+    }
+    
+    public void BackToMain(){
+        KeepPlayer.Instance.gameObject.SetActive(true);
+        KeepCam.Instance.gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        SceneManager.LoadScene("all_objects");
     }
 }

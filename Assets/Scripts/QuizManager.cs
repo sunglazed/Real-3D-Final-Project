@@ -56,6 +56,9 @@ public class QuizManager : MonoBehaviour
         
     public void GoBack()
     {
+        KeepPlayer.Instance.gameObject.SetActive(true);
+        KeepCam.Instance.gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
         SceneManager.LoadScene("all_objects");
     }
 
